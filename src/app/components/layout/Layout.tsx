@@ -3,7 +3,6 @@ import * as React from "react"
 import styles from "./Layout.module.scss"
 
 import logo from "~/assets/logo.svg"
-import pattern from "~/assets/pattern_header.svg"
 import patternFooter from "~/assets/footer_long.svg"
 
 const Layout: React.FC = ({children}) => {
@@ -12,18 +11,8 @@ const Layout: React.FC = ({children}) => {
       <header>
         <div className={styles.title}>
           <h1><img src={logo} alt="The Heritage logo" /></h1>
-          <img src={pattern} />
+          <div className={styles.headerPattern}></div>
         </div>
-        <nav className={styles.navigation}>
-          <a className={styles.commercial} href="">
-            <span className={styles.image}></span>
-            <span className={styles.text}>Commercial</span>
-          </a>
-          <a className={styles.residential} href="">
-            <span className={styles.image}></span>
-            <span className={styles.text}>Residential</span>
-          </a>
-        </nav>
       </header>
       <main>
         {children}
