@@ -20,22 +20,72 @@
   }
 }
 
+.navigation {
+  position: relative;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  background-color: #fff;
+  a {
+    display: flex;
+    flex-direction: column;
+    width: calc(50% - 0.1rem);
+    text-decoration: none;
+    .image {
+      background-size: auto 120%;
+      background-position: 65% 90%;
+      height: 200px;
+    }
+    .text {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 3.5rem;
+      width: 100%;
+      font-size: 12px;
+      background-color: var(--primary);
+      text-transform: uppercase;
+      font-weight: 600;
+      color: #efefef;
+      letter-spacing: 3px;
+      em {
+        display: none;
+      }
+    }
+  }
+  .commercial {
+    .image {
+      background-size: 100% auto;
+      background-image: url("./../../../assets/images/heritage_way_streetscape_thumb.jpg");
+    }
+  }
+  .residential {
+    .image {
+      background-image: url("./../../../assets/images/clubhouse_pool.jpg");
+    }
+  }
+}
+
 main {
   width: 100%;
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  align-items: center;
 }
 
 footer {
   display: flex;
   flex-direction: column;
-  img {
-    background: linear-gradient(to right, #603421 0%, #c48963 100%);
+  &:before {
+    content: "";
+    height: 20vh;
+    background-image: url("./../../../assets/footer_long.svg"),
+      linear-gradient(to right, #603421 0%, #c48963 100%);
   }
   .info {
     background-color: var(--primary);
-    height: 40vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -45,12 +95,15 @@ footer {
       color: #efefef;
       text-align: center;
       p {
-        margin: 0;
+        margin: 0.5rem 0 0 0;
       }
     }
     .generalInfo {
+      font-size: 0.8rem;
+      margin: 2rem 0;
       span {
-        font-weight: 700;
+        font-weight: 600;
+        text-transform: uppercase;
       }
       p {
         font-style: italic;
@@ -58,20 +111,114 @@ footer {
     }
 
     .companies {
-      font-weight: 700;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
     }
   }
   .legal {
-    padding: 1rem;
     background-color: #603e2c;
     color: rgba(255, 255, 255, 0.5);
     display: flex;
     justify-content: center;
     text-align: center;
+    font-size: 0.7rem;
+    padding: 1rem 0;
   }
 }
-// <img src="./../../../assets/images/heritage_square_birds_eye_thumb.jpg" alt="" />
-//         <img src="./../../../assets/images/heritage_square_multistory_thumb.jpg" alt="" />
-//         <img src="./../../../assets/images/heritage_way_streetsacape.jpg" alt="" />
-//         <img src="./../../../assets/images/town_square_thumb.jpg" alt="" />
-//         <img src="./../../../assets/images/master_plan_thumb.jpg" alt="" />
+
+@media screen and (min-width: 480px) {
+  .title {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 3px;
+    h1 {
+      width: 50%;
+      img {
+        margin: 0;
+        width: 40%;
+      }
+    }
+    .headerPattern {
+      width: 50%;
+      height: 100%;
+      background-size: 135% auto;
+    }
+  }
+
+  footer {
+    img {
+      max-height: 20vh;
+      background-position: 0% 0%;
+      background-repeat: repeat;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  header {
+    display: flex;
+    height: 320px;
+    justify-content: space-between;
+  }
+  .title {
+    width: calc(30% - 3px);
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    h1 {
+      height: 30vh;
+      img {
+        width: 100%;
+      }
+    }
+    .headerPattern {
+      height: 36%;
+      width: 100%;
+      background-position: 0% 0%;
+      background-size: auto 100%;
+    }
+  }
+  .navigation {
+    width: 70%;
+    height: 100%;
+    a {
+      .image {
+        height: 64%;
+      }
+      .text {
+        display: flex;
+        flex-direction: column;
+        height: 36%;
+        em {
+          display: inline-block;
+          margin-top: 1rem;
+        }
+      }
+    }
+  }
+  footer {
+    &:before {
+      height: 11rem;
+      width: 11rem;
+      background-size: auto 81%;
+      position: absolute;
+      right: 0;
+      background-position: 185% 0%;
+    }
+    .info {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0 12.8rem 0 1.8rem;
+      height: 11rem;
+      .generalInfo {
+        text-align: left;
+      }
+      .companies {
+        text-align: right;
+      }
+    }
+  }
+}

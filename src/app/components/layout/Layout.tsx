@@ -13,12 +13,21 @@ const Layout: React.FC = ({children}) => {
           <h1><img src={logo} alt="The Heritage logo" /></h1>
           <div className={styles.headerPattern}></div>
         </div>
+        <nav className={styles.navigation}>
+          <a className={styles.commercial} href="">
+            <span className={styles.image}></span>
+            <span className={styles.text}>Commercial <em>Grow your business here.</em></span>
+          </a>
+          <a className={styles.residential} href="">
+            <span className={styles.image}></span>
+            <span className={styles.text}>Residential <em>Live and play here.</em></span>
+          </a>
+        </nav>
       </header>
       <main>
         {children}
       </main>
       <footer>
-        <img src={patternFooter} alt="" />
         <div className={styles.info}>
           <div className={styles.generalInfo}>
             <span>General info</span>
